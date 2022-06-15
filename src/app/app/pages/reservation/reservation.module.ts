@@ -6,10 +6,12 @@ import { MaterialModuleModule } from 'src/app/angular-material/angular-material.
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { RoomsComponent } from './rooms/rooms.component';
 
 
 @NgModule({
-  declarations: [ReservationComponent],
+  declarations: [ReservationComponent, ReservationDetailsComponent, RoomsComponent],
   imports: [
     CommonModule,
     ReservationRoutingModule,

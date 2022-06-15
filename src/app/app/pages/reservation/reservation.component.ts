@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationServices } from '../../core/services/reservation.services';
 
 @Component({
   selector: 'app-reservation',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public reservationServices: ReservationServices) { 
+    
+  }
 
   ngOnInit(): void {
+    console.log(this.reservationServices.reservationSelected);
   }
 
 }

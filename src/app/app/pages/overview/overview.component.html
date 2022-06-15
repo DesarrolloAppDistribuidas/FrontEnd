@@ -39,8 +39,8 @@
         <mat-form-field class="w-75 flex align-items-center justify-content-center" appearance="outline">
           <mat-label>Ingrese Rango de Fechas</mat-label>
           <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Fecha Incio">
-            <input matEndDate placeholder="Fecha Fin">
+            <input name="datein" matStartDate placeholder="Fecha Incio" [(ngModel)]="reSelected.date_in" >
+            <input name="dateout" matEndDate placeholder="Fecha Fin"   [(ngModel)]="reSelected.date_out">
           </mat-date-range-input>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
@@ -50,11 +50,15 @@
         <h3 class="text-center fw-light">Habitaciones e Invitados</h3>
         <mat-form-field class="w-75" appearance="outline">
           <mat-label>Habitaciones</mat-label>
-          <input matInput type="number" min="1" value="1">
+          <input matInput type="number" min="1" value="1" >
         </mat-form-field>
         <mat-form-field class="w-75" appearance="outline">
           <mat-label>Personas</mat-label>
-          <input matInput type="number" min="1" value="1">
+          <input matInput type="number" min="1" value="1" [(ngModel)]="reSelected.number_adults">
+        </mat-form-field>
+        <mat-form-field class="w-75" appearance="outline">
+          <mat-label>Niños</mat-label>
+          <input matInput type="number" min="1" value="1" [(ngModel)]="reSelected.number_children">
         </mat-form-field>
       </div>
       <div class="col" style="text-align: center;">
@@ -72,7 +76,7 @@
     </div>
     <div class="card-footer w-100 bg-white  border-top border-success">
       <div class="py-2" style="text-align: center;"> 
-        <button class="btn btn-success btn-sm rounded-pill"> Ver Tarifas</button>
+        <a href="reservation"><button class="btn btn-success btn-sm rounded-pill" (click)="mostrar()"> Ver Tarifas</button></a>
       </div>
     </div>
   </div>
