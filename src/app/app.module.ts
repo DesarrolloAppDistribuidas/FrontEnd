@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

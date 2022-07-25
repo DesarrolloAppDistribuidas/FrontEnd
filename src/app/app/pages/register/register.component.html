@@ -1,0 +1,133 @@
+<div>
+    <nav class="navbar navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand">
+                <img src="assets/logo_size.jpg" alt="..." height="30">
+            </a>
+        </div>
+    </nav>
+
+    <div style="background-image: url(assets/portadaRegister.webp); height: 264px;display:flex; align-items: center;">
+        <div class="align-self-center px-4 text-white" style="margin: 0px 65px 0px 65px; align-items: center;">
+            <h1 class="my-2" style="font-size:2.75rem;">Hazte miembro</h1>
+            <h2 class="my-2" style="font-size:2.25rem;">¡Es gratis unirse!</h2>
+        </div>
+    </div>
+
+    <div class="px-4 py-4" style="margin:0px 65px 0px 65px;">
+        <div class="row my-4" style="display:flex; align-items:center; justify-content:center;">
+            <div class="col-sm-3 row" >
+                <span class="material-icons " style="font-size:60px;color:darkcyan">
+                    hotel
+                </span>
+                <p class="fw-bold fs-6 pt-2">Gane noches gratis</p>
+            </div>
+            <div class="col-sm-3 row">
+                <span class="material-icons" style="font-size:60px; color:darkcyan">
+                    monetization_on
+                </span>
+                <p class="fw-bold fs-6 pt-2">Tarifas para miembros</p>
+            </div>
+            <div class="col-sm-3 row">
+                <span class="material-icons" style="font-size:60px;color:darkcyan">
+                    wifi
+                </span>
+                <p class="fw-bold fs-6 pt-2"> Wi-Fi gratis </p>
+            </div>
+            <div class="col-sm-3 row">
+                <span class="material-icons" style="font-size:60px;color:darkcyan">
+                    phone_android
+                </span>
+                <p class="fw-bold fs-6 pt-2">Facturación móvil</p>
+            </div>
+        </div>
+        <!--card-->
+        <div class="py-2" style="display:flex; align-items:center; justify-content:center;">
+            <mat-card class="w-75" style="">
+                <mat-card-title class="px-4 py-4">
+                    ¿Ya eres Usuario?
+                </mat-card-title>
+                <mat-card-content>
+                    <form #UserRegisterForm="ngForm" (ngSubmit)="addUser(UserRegisterForm)">
+                        <div class="px-4">
+                            <div class="row py-2 w-100 mx-0">
+                                <div class="form-group col-sm-12">
+                                    <h6 class="card-subtitle mb-2 fs-6">Nombres:</h6>
+                                    <input type="text" name="name" class="form-control" required placeholder="Ingrese nombre" [(ngModel)]="userServices.userRegister.name">
+                                </div>
+                            </div>
+                            <div class="row py-2 w-100 mx-0">
+                                <div class="form-group col-sm-6">
+                                    <h6 class="card-subtitle mb-2 fs-6">Apellido Paterno:</h6>
+                                    <input type="text" class="form-control" name="lastname_p"
+                                    required placeholder="Ingrese apellido paterno" [(ngModel)]="userServices.userRegister.lastname_p">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <h6 class="card-subtitle mb-2 fs-6">Apellido Materno:</h6>
+                                    <input type="text" name="lastname_m" class="form-control" required placeholder="Ingrese apellido materno" [(ngModel)]="userServices.userRegister.lastname_m">
+                                </div>
+                            </div>
+                            <div class="row py-2 w-100 mx-0">
+                                <div class="form-group col-sm-6">
+                                    <h6 class="card-subtitle mb-2 fs-6">DNI:</h6>
+                                    <input type="number" name="dni" class="form-control" required placeholder="Ingrese apellido materno" [(ngModel)]="userServices.userRegister.dni">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <h6 class="card-subtitle mb-2 fs-6">Numero Celular:</h6>
+                                    <input type="text" class="form-control" name="phone" required
+                                        placeholder="Ingrese número telefónico" [(ngModel)]="userServices.userRegister.phone">
+                                </div>
+                            </div>
+                            <div class="row py-2 mx-0">
+                                <div class="form-group col-sm-12">
+                                    <h6 class="card-subtitle mb-2 fs-6">Correo Electrónico:</h6>
+                                    <input type="text" class="form-control" name="email" required
+                                        placeholder="Ingrese corrreo electrónico" [(ngModel)]="userServices.userRegister.email">
+                                </div>
+                            </div>
+                            <div class="row py-2 mx-0">
+                                <div class="form-group col-sm-12">
+                                    <h6 class="card-subtitle mb-2 fs-6">Contraseña:</h6>
+                                    <input type="password" class="form-control" name="password" required
+                                        placeholder="Ingrese contraseña" [(ngModel)]="userServices.userRegister.password">
+                                </div>
+                            </div>
+                            <div class="row py-2 mx-0">
+                                <div class="form-group col-sm-12">
+                                    <h6 class="card-subtitle mb-2 fs-6">Confirmar Contraseña:</h6>
+                                    <input type="password" class="form-control" name="passwordConfirm" required
+                                        placeholder="Vuelva a ingresar contraseña" [(ngModel)]="passwordConfirm" >
+                                </div>
+                            </div>
+                            <div *ngIf="alertDanger" (click)="alertClose()" class="alert alert-danger  alert-dismissible fade show" role="alert">
+                                Las contraseñas no coinciden. Intentelo nuevamente!.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <div class="row py-2  mx-0">
+                                <div class="form-group col-sm-12">
+                                    <h6 class="card-subtitle mb-2 fs-6">Número de Tarjeta</h6>
+                                    <input type="text" class="form-control" name="card_number" required
+                                        placeholder="Ingrese número de tarjeta"  [(ngModel)]="userServices.userRegister.card_number">
+                                </div>
+                            </div>
+                            <div class="form-check py-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [required]="true">
+                                <label class="form-check-label fs-6" for="flexCheckDefault">
+                                    Al registrarme, acepto los términos de uso y condiciones.
+                                </label>
+                            </div>
+                            <div class="my-2">
+                                <button type="submit" class="btn btn-primary col-sm-3 mr-2">Registrarse</button>
+                                <button type="button" class="btn btn-secondary col-sm-3 mx-2" (click)="close()">Cerrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+
+
+
+</div>

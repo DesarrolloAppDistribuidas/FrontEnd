@@ -1,43 +1,163 @@
-
 <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-1">
         <div class="container-fluid">
             <div class="collapse navbar-collapse d-flex flex-row-reverse">
-              <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/reservation">abc@gmail.com</a>
-              </div>
+                <div class="navbar-nav">
+                    <div *ngIf="reservationServices.search.status" class="nav-link dropdown pt-1">
+                        <button type="button" class="btn btn-outline-primary drowpdown-toggle btn-sm py-0"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                            </svg>
+                            {{reservationServices.search.email}}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <li>
+                            <button class="dropdown-item" (click)="logOut()">
+                              CerrarSesión
+                            </button>
+                            </li>
+                          </ul>
+                    </div>
+                    <div *ngIf="!reservationServices.search.status" class="nav-link dropdown pt-1">
+                        <button type="button" class="btn btn-outline-primary drowpdown-toggle btn-sm py-0"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                            </svg>
+                            Iniciar Sesion o Unirse
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" data-bs-toggle="modal"
+                                    data-bs-target="#modalLogin">
+                                    Iniciar Sesión</button>
+                            </li>
+                            <li><button class="dropdown-item" (click)="register()">Unirse</button></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
         <div class="container-fluid row">
             <div class="col-4" style="color: white;">a</div>
             <div class="col-8" style="color: white;">
-                <p>The Westin Lima Hotel & Centro de Convenciones
+                <p class="fs-4" style="font-family: TimesNewRoman ;">LIMA GUEST HOTEL</p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt" viewBox="0 0 16 16">
+                        <path
+                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg> Calle Las Begonias 450. San Isidro, Lima 27 Peru
                 </p>
                 <p>
-                    Calle Las Begonias 450. San Isidro, Lima  27 Peru
-                </p>
-                <p>
-                    EXCLUSIVE AMENITIES Service Request Spa Fitness Internet
+                    AMENIDADES EXCLUSIVAS:
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-bell" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                    </svg> Servicio
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-hearts" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.931.481c1.627-1.671 5.692 1.254 0 5.015-5.692-3.76-1.626-6.686 0-5.015Zm6.84 1.794c1.084-1.114 3.795.836 0 3.343-3.795-2.507-1.084-4.457 0-3.343ZM7.84 7.642c2.71-2.786 9.486 2.09 0 8.358-9.487-6.268-2.71-11.144 0-8.358Z" />
+                    </svg> Spa
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-activity" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z" />
+                    </svg> Gimnasio
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-wifi" viewBox="0 0 16 16">
+                        <path
+                            d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.444 12.444 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.518.518 0 0 0 .668.05A11.448 11.448 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049z" />
+                        <path
+                            d="M13.229 8.271a.482.482 0 0 0-.063-.745A9.455 9.455 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065zm-2.183 2.183c.226-.226.185-.605-.1-.75A6.473 6.473 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.478 5.478 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091l.016-.015zM9.06 12.44c.196-.196.198-.52-.04-.66A1.99 1.99 0 0 0 8 11.5a1.99 1.99 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z" />
+                    </svg> Internet
                 </p>
             </div>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-1 border border-primary border-bottom">
         <div class="container-fluid row ">
             <div class="col-4">
-                <p class="fw-light m-0" style="font-size:12px;">Fechas</p>
-                <p class="m-0">22/06/2022 - 26/06/2022</p>
+                <p class=" m-0" style="font-size:12px;">Fecha de reserva:</p>
+                <p class="m-0" style="display: inline;">{{reservationServices.search.date_in|date:'dd/MM/yy'}}</p> - <p
+                    class="" style="display: inline;">{{reservationServices.search.date_out|date:'dd/MM/yy'}}</p>
             </div>
             <div class="col-4">
-                <p class="fw-light m-0" style="font-size:12px;">Habitaciones e Invitados</p>
-                <p class="m-0">1 Habitacion: 2 Adultos, 2 niños</p>
+                <p class="m-0" style="font-size:12px;">Habitaciones e Invitados:</p>
+                <p class="m-0"> Habitacion(es): {{reservationServices.search.number_rooms}} / Persona(s):
+                    {{reservationServices.search.number_adults}} / Niño(s):
+                    {{reservationServices.search.number_children}} </p>
             </div>
             <div class="col-4"></div>
         </div>
     </nav>
 </div>
 
+<!--LOGIN-->
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <p class="fs-4 fw-bold mb-0  modal-title" id="loginModalLabel">Lima Guest Hotel</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form #loginUser="ngForm" (ngSubmit)="login(loginUser)">
+                <div *ngIf="!loginCorrect">
+                    <div class="modal-body">
+                        <p class="fs-5">Iniciar sesión en su cuenta</p>
+                        <div class="row">
+                            <div class="py-2">
+                                <div class="form-group col-sm-12">
+                                    <h6 class="card-subtitle mb-2 fs-6 fw-light">Correo Electrónico:</h6>
+                                    <input type="text" name="email" class="form-control" required
+                                        placeholder="Ingrese correo electrónico"
+                                        [(ngModel)]="authServices.userlogin.email">
+                                </div>
+                            </div>
+                            <div class="py-2">
+                                <div class="form-group col-sm-12">
+                                    <h6 class="card-subtitle mb-2 fs-6 fw-light">Contraseña:</h6>
+                                    <input type="password" name="password" class="form-control " required
+                                        placeholder="Ingrese contraseña" [(ngModel)]="authServices.userlogin.password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="alertLogin" (click)="alertLogin=!alertLogin"
+                        class="alert alert-danger  alert-dismissible fade show mx-3" role="alert">
+                        El usuario y/o la contraseña son incorrectas. Intentelo de nuevo!.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                    </div>
+                </div>
+                <div *ngIf="loginC">
+                    <div class="modal-body">
+                        <p class="fs-5">Bienvenido! </p>
+                        <p class="fs-5">{{userServices.userLogin.name}} {{userServices.userLogin.lastname_p}}
+                            {{userServices.userLogin.lastname_m}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            aria-label="Close">Aceptar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--FIN LOGIN-->
 <router-outlet></router-outlet>
 <!--card rooms-->

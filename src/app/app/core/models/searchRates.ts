@@ -1,12 +1,12 @@
-export class Reservation{
+export class SearchRates{
     email?:string;
-    id_room?:string;
+    rates?:string;
+    number_rooms?:number;
     number_adults?:number;
     number_children?:number;
     date_in?:Date;
     date_out?:Date;
-    payment?:number;
-
+    status?:boolean;
     constructor(date_in:string, date_out:string, number_adults:number,number_children:number){
         this.date_in=new Date(date_in);
         this.date_out = new Date(date_out);
