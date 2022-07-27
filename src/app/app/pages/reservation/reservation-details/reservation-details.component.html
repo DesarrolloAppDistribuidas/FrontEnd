@@ -3,24 +3,26 @@
     <div class="card w-100">
         <div class="card-body row p-0 ">
             <div class="col-md-8 col-xs-12">
-                <img src="assets/rooms/cmaKing.webp" class="float-start img-fluid" style="height: 312px; width: 778px;" alt="" >
+                <img src="assets/rooms/suiteEjecutiva.webp" class="float-start img-fluid" style="height: 312px; width: 778px;" alt="" >
             </div>
             <div class="col-md-4 col-xs-12">
-                <h2 class="pt-4" style="font-size:24px">1 Cama King, Habitacion de lujo</h2>
+                <h2 class="pt-4" style="font-size:24px">1 Cama King, Suite Ejecutiva</h2>
                 <ul class="m-0" style="list-style:none; padding:0">
                     <li class="py-2" style="font-size:16px">
-                        <!--<strong>Entrada:</strong> {{reservationServices.reservationSelected.date_in| date:'fullDate'}}-->
+                        <strong>Entrada:</strong> {{reservationServices.search.date_in| date:'fullDate'}}
                     </li>
                     <li class="py-2" style="font-size:16px">
-                        <!--<strong>Salida:</strong> {{reservationServices.reservationSelected.date_out| date:'fullDate'}}-->
+                        <strong>Salida:</strong> {{reservationServices.search.date_out| date:'fullDate'}}
                     </li>
                     <li class="py-2" style="font-size:16px">
-                        <strong>Habitacion(es):</strong> 
+                        <strong>Habitacion(es):</strong>  {{reservationServices.search.number_rooms}}
+                        <strong>Adultos:</strong>  {{reservationServices.search.number_adults}}
+                        <strong>Niños:</strong>  {{reservationServices.search.number_children}}
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="card-footer bg-white"><strong>Resumen de Cargos:</strong></div>
+        <div class="card-footer bg-white"><strong>Total a pagar: 640 USD</strong> </div> <button type="button" class="btn btn-primary w-25" (click)="reservar()">Aceptar</button>
     </div>
 </div>
 aaa
